@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  /* Reserve space for iOS status bar in standalone mode */
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Restore text selection in inputs */
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+@keyframes gentleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes savedFlash {
+  0% { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+}

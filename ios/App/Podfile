@@ -1,0 +1,12 @@
+platform :ios, '14.0'
+use_frameworks!
+
+# Capacitor iOS framework
+target 'App' do
+  capacitor_path = '../node_modules/@capacitor/ios'
+  pod 'Capacitor', :path => "#{capacitor_path}/Capacitor"
+  pod 'CapacitorCordova', :path => "#{capacitor_path}/Cordova"
+
+  # HealthKit is a native iOS framework — no third-party pod needed.
+  # The HealthKitPlugin.swift in this target links against HealthKit directly.
+end
